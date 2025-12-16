@@ -22,7 +22,7 @@ La arquitectura sigue un flujo **Cliente → Seguridad → API Gateway → Backe
 
 ---
 
-## 🔐 Seguridad – Defensa en Profundidad
+## 🔐 Seguridad 
 
 La API implementa **tres capas de seguridad secuenciales**, todas centralizadas en el API Gateway:
 
