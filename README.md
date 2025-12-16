@@ -1,12 +1,12 @@
 # Proyecto 8 – Arquitectura de API Gateway en AWS
 
-📘 **Curso:** Servidores e Instrumentación  
-👨‍🏫 **Profesor:** Alcides Montoya Cañola  
-☁️ **Plataforma:** AWS Academy – Learner Lab  
+ **Curso:** Servidores e Instrumentación  
+**Profesor:** Alcides Montoya Cañola  
+ **Plataforma:** AWS Academy – Learner Lab  
 
 ---
 
-## 📌 Descripción General
+##  Descripción General
 
 Este proyecto implementa una **API RESTful utilizando Amazon API Gateway como fachada única de entrada**, con el objetivo de demostrar una **arquitectura moderna, segura y escalable en AWS**, basada en el principio de **Defensa en Profundidad**.
 
@@ -14,11 +14,11 @@ La solución centraliza el **control de seguridad, autenticación, rate limiting
 
 ---
 
-## 🏗️ Arquitectura General
+##  Arquitectura General
 
 La arquitectura sigue un flujo **Cliente → Seguridad → API Gateway → Backends → Observabilidad**, integrando múltiples servicios administrados de AWS.
 
-![Arquitectura AWS del Proyecto](docs/architecture.png)
+![Arquitectura AWS del Proyecto](docs/Arquitectura.png)
 
 ---
 
@@ -26,31 +26,31 @@ La arquitectura sigue un flujo **Cliente → Seguridad → API Gateway → Backe
 
 La API implementa **tres capas de seguridad secuenciales**, todas centralizadas en el API Gateway:
 
-### 1️⃣ Seguridad Perimetral – AWS WAF
+### 1️ Seguridad Perimetral – AWS WAF
 - Inspecciona todo el tráfico entrante.
 - Utiliza reglas administradas (`AWSManagedRulesCommonRuleSet`).
 - Protege contra ataques comunes como **SQL Injection, XSS y bots maliciosos**.
 
-### 2️⃣ Autenticación – Amazon Cognito
+### 2️ Autenticación – Amazon Cognito
 - Gestión de usuarios mediante **User Pool**.
 - El cliente debe autenticarse y enviar un **JWT (Bearer Token)**.
 - API Gateway valida automáticamente el token antes de permitir el acceso.
 
-### 3️⃣ Autorización por Aplicación – API Keys
+### 3️ Autorización por Aplicación – API Keys
 - Se requiere el header `x-api-key`.
 - Permite controlar el consumo por aplicación cliente.
 - Asociado a un **Usage Plan** con throttling.
 
 ---
 
-## 🚦 Control de Tráfico y Rendimiento
+##  Control de Tráfico y Rendimiento
 
-### 🔁 Rate Limiting (Usage Plans)
+###  Rate Limiting (Usage Plans)
 - **5 Requests por Segundo (RPS)**
 - **Burst de 10**
 - Protege los backends contra sobrecarga y abuso.
 
-### ⚡ API Gateway Caching
+###  API Gateway Caching
 - Caché habilitada (0.5 GB).
 - **TTL: 300 segundos (5 minutos)**.
 - Las respuestas repetidas se devuelven directamente desde el Gateway sin invocar Lambda ni escribir en DynamoDB, reduciendo latencia y costos.
@@ -85,9 +85,9 @@ La API expone múltiples endpoints que demuestran diferentes tipos de integraci�
 
 ---
 
-## 📊 Observabilidad y Monitoreo
+##  Observabilidad y Monitoreo
 
-### 📈 Amazon CloudWatch
+### Amazon CloudWatch
 - Logs de ejecución.
 - Métricas de rendimiento y errores.
 
