@@ -18,7 +18,7 @@ La solución centraliza el **control de seguridad, autenticación, rate limiting
 
 La arquitectura sigue un flujo **Cliente → Seguridad → API Gateway → Backends → Observabilidad**, integrando múltiples servicios administrados de AWS.
 
-![Arquitectura AWS del Proyecto](docs/Arquitectura.png)
+![Arquitectura AWS del Proyecto](Arquitectura.png)
 
 ---
 
